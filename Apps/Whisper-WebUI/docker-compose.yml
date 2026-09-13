@@ -1,0 +1,63 @@
+name: whisper-webui
+
+services:
+  whisper-webui:
+    image: jhj0517/whisper-webui:latest
+    pull_policy: never
+    container_name: whisper-webui
+    restart: unless-stopped
+    ports:
+      - target: 7860
+        published: "7860"
+        protocol: tcp
+    environment:
+      TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD: "1"
+    volumes:
+      - type: bind
+        source: /DATA/AppData/whisper-webui/models
+        target: /Whisper-WebUI/models
+      - type: bind
+        source: /DATA/AppData/whisper-webui/outputs
+        target: /Whisper-WebUI/outputs
+      - type: bind
+        source: /DATA/AppData/whisper-webui/configs
+        target: /Whisper-WebUI/configs
+    entrypoint:
+      - python
+      - app.py
+      - --server_port
+      - "7860"
+      - --server_name
+      - 0.0.0.0
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities:
+                - gpu
+
+x-casaos:
+  id: com.aboulang.casaos.whisper-webui
+  main: whisper-webui
+  index: /
+  port_map: "7860"
+  scheme: http
+  icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/openai.png
+  title:
+    en_us: Whisper WebUI
+    en_US: Whisper WebUI
+  tagline:
+    en_us: Local GPU-accelerated speech transcription
+    en_US: Local GPU-accelerated speech transcription
+  description:
+    en_us: Local GPU-accelerated Whisper transcription and diarization.
+    en_US: Local GPU-accelerated Whisper transcription and diarization.
+  author: agb
+  developer: jhj0517
+  category: AGB
+  architectures:
+    - amd64
+  version: "latest"
+  repo: https://github.com/jhj0517/Whisper-WebUI
