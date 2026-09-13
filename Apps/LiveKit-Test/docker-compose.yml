@@ -20,13 +20,10 @@ x-casaos:
   icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/livekit.png
   title:
     en_us: LiveKit Test Server
-    en_US: LiveKit Test Server
   tagline:
     en_us: LAN-only LiveKit server for WebRTC development
-    en_US: LAN-only LiveKit server for WebRTC development
   description:
     en_us: Development LiveKit server for browser and Flutter WebRTC experiments. It uses LiveKit dev mode and host networking.
-    en_US: Development LiveKit server for browser and Flutter WebRTC experiments. It uses LiveKit dev mode and host networking.
   author: agb
   developer: LiveKit
   category: AGB
