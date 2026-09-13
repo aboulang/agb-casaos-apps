@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "store_id": "com.aboulang.casaos",
+  "name": {
+    "en_US": "AGB CasaOS Apps"
+  },
+  "description": {
+    "en_US": "Custom CasaOS applications maintained for AGB homelab systems."
+  },
+  "maintainer": "agb",
+  "url": "https://github.com/aboulang/agb-casaos-apps"
+}
