@@ -1,0 +1,5 @@
+dist/
+.cache/
+out/
+*.env
+.env
